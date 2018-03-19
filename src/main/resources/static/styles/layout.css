@@ -66,15 +66,27 @@ img{
 	margin: 10px 30px;
 }
 .content-tag-body{
+	margin: 5px 11px;
 	display:grid;
 	grid-template-columns: auto 30px;
 	grid-template-rows: auto
 }
-.content-tag-body{
+.content-tags-body{
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	align-content: flex-start;
   	align-items: center;
+}
+.content-tag-element{
+	display:flex;
+	justify-content: center;
+	align-content: center;
+}
+.content-tag-name{
+	display:flex;
+	justify-content: center;
+	align-content: center;
 }
 .tagList{
 	flex-direction:row;
@@ -85,6 +97,7 @@ img{
 	grid-row: 1/-1;
 }
 .content-tag-triangle{
+
 	grid-column: -1/-2;
 	grid-row: 1/-1;
 }

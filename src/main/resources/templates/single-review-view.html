@@ -35,12 +35,12 @@
 		</article>
 		<div class= "content-tags-body" id="tagList">
 			<article class ="content-tag-body" th:each="contentTag: ${selectedReview.contentTags}">
-				<div class="content-tag-body content-tag-box">
+				<div class="content-tag-element content-tag-box">
 					<h5 class="content-tag-name" >
 						<a th:href="@{/content-tag(id=${contentTag.id})}" th:text="${contentTag.name}">TagName</a>
 					</h5>
 				</div>
-				<div class = "content-tag-remove content-tag-triangle">
+				<div class = "content-tag-remove content-tag-element content-tag-triangle">
 					<form class="content-tag-remove-form">
 						<input class="content-tag-remove-tag-id" type="hidden" th:value="${contentTag.id}" name="contentTagId"/>
 						<input class="content-tag-remove-review-id" type="hidden" th:value = "${selectedReview.id}" name="reviewId"/>

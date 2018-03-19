@@ -30,6 +30,41 @@ body {
 ul.nav-list{
 	list-style-type: none;
 }
+.content-tags-body{
+    background-color:rgba(255, 203, 17, .2);
+
+}
+.content-tag-body {
+    width: 200px;
+    height: 40px;
+    position: relative;
+    background-color: #d1a506;
+  }
+.content-tag-body:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+.content-tag-body:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid #d1a506;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+.content-tag-element{
+    background-color: #d1a506;
+}
 .content-tag-remove-button{
 cursor:pointer;
 }
