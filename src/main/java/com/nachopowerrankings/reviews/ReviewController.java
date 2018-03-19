@@ -41,10 +41,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/content-tag")
-	public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
+  public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
 		ContentTag selectedContentTag = contentTagRepo.findOne(contentTagId);
 		model.addAttribute("selectedContentTag", selectedContentTag);
-		return "single-content-tag-view";
+    return "single-content-tag-view";
 	}
 
 	@RequestMapping("/add-comment")

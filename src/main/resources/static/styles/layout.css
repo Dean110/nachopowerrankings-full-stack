@@ -76,6 +76,10 @@ img{
 	align-content: flex-start;
   	align-items: center;
 }
+.tagList{
+	flex-direction:row;
+	flex-row: 1/-1;
+}
 .content-tag-box{
 	grid-column: 1/2;
 	grid-row: 1/-1;
