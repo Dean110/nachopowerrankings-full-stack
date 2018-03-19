@@ -10,7 +10,7 @@
 	<div class="container">
 		<header>
 			<div class="header-title-container">
-				<h1 class="header-title">NachoPowerRankings.com</h1>
+				<h1 class="header-title">NachoPowerRankings</h1>
 			</div>
 			<nav class="header-nav">
 				<ul class="nav-list">
@@ -22,21 +22,20 @@
 			</nav>
 		</header>
 		<article class="main-content">
-			<h2 class="categories-title">Nacho Review Categories</h2>
-			<p class="categories-description">Here at NachoPowerRankings.com, we have drilled down nachos to these basic categories. Most nachos can fall into one of these categories and it helps us keep nachos of similar pedigrees competing in their respective weight classes.</p>
-			<div class="categories-list" th:each="category: ${categories}">
-				<section class="category">
-					<h3 class="category-title">
-						<a th:href="@{/category(id=${category.id})}" th:text="${category.name}"></a>
+			<h2 class="category-title" th:text="${selectedContentTag.name}">Nacho Review Category</h2>
+			<div class="reviews-list" th:each="review: ${selectedContentTag.reviews}">
+				<section class="reviews">
+					<h3 class="reviews-list">
+						<a th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
 					</h3>
 				</section>
 			</div>
+			<p class="categories-link"><a href="/categories">Back to the Categories</a></p>
 		</article>
 		<footer class="footer-box">
 			<section class="footer-message">
 				<p>Thanks for stopping by NachoPowerRankings.com</p>
 			</section>
-			<script src = "js/main.js"></script>
 			<section class="footer-copyright">
 				<p>©2018</p>
 			</section>

@@ -1,10 +1,14 @@
 package com.nachopowerrankings.reviews;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -18,6 +22,14 @@ public class Review {
 	private String imageUrl;
 	@ManyToOne
 	private Category category;
+	@ManyToMany(mappedBy = "reviews")
+	private Collection<ContentTag> contentTags;
+	@OneToMany(mappedBy = "review")
+	private Collection<Comment> comments;
+
+	public Collection<ContentTag> getContentTags() {
+		return contentTags;
+	}
 
 	public long getId() {
 		return id;
@@ -72,6 +84,10 @@ public class Review {
 		}
 
 		return id == ((Review) obj).id;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 
 }

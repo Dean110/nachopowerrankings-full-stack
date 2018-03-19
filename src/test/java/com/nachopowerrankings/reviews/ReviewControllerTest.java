@@ -23,11 +23,15 @@ public class ReviewControllerTest {
 	@Mock
 	private ReviewRepository reviewRepo;
 	@Mock
+	private CommentRepository commentRepo;
+	@Mock
 	private Category category1; // = new Category(NAME, SUMMARY);
 	@Mock
 	private Category category2;
 	@Mock
 	private Review review1;
+	@Mock
+	private Comment comment1;
 	@Mock
 	private Model model;
 
@@ -78,4 +82,16 @@ public class ReviewControllerTest {
 		assertThat(templateName, is("single-review-view"));
 
 	}
+
+	// @Test
+	// public void shouldAddCommentToRepo() {
+	// String testAuthor = "Raphael";
+	// Long testDate = 101L;
+	// String testContent = "Test";
+	// when(commentRepo.save(comment1)).thenReturn(comment1);
+	// String result = underTest.addComment(testAuthor, review1, testDate,
+	// testContent, model);
+	// assertThat(result, is("redirect:single-review-view"));
+	// verify(model)result.
+	// }
 }

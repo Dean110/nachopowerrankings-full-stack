@@ -16,7 +16,8 @@ a:hover {
 }
 body {
     background-image: url("/images/background.png");
-    background-size: cover;
+    background-size: 100%;
+     background-attachment: fixed;
     }
 .container{
     background-color: rgba(229, 216, 139, 0.8);
@@ -28,4 +29,7 @@ body {
 }
 ul.nav-list{
 	list-style-type: none;
+}
+.content-tag-remove-button{
+cursor:pointer;
 }

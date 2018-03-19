@@ -5,8 +5,6 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.nachopowerrankings.reviews.Category;
-
 public class CategoryTest {
 	private static final String SUMMARY = "A category of Testing";
 

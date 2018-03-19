@@ -6,7 +6,7 @@
 
 .container {
 	display:grid;
-	grid-template-rows: 120px auto 80px;
+	grid-template-rows: 120px auto auto auto auto auto 80px;
 	grid-gap: 10px;
 	min-height: 100vh;
 }
@@ -64,6 +64,29 @@ img{
 	
 	max-width:340px;
 	margin: 10px 30px;
+}
+.content-tag-body{
+	display:grid;
+	grid-template-columns: auto 30px;
+	grid-template-rows: auto
+}
+.content-tag-body{
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+  	align-items: center;
+}
+.tagList{
+	flex-direction:row;
+	flex-row: 1/-1;
+}
+.content-tag-box{
+	grid-column: 1/2;
+	grid-row: 1/-1;
+}
+.content-tag-triangle{
+	grid-column: -1/-2;
+	grid-row: 1/-1;
 }
 footer {
 	margin:0px 10px;

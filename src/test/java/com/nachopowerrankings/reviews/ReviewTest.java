@@ -5,9 +5,6 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.nachopowerrankings.reviews.Category;
-import com.nachopowerrankings.reviews.Review;
-
 public class ReviewTest {
 	private static final String TLDR = "T";
 	private static final String IMAGE_URL = "./testImage";
