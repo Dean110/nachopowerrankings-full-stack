@@ -41,10 +41,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/content-tag")
-  public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
+	public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
 		ContentTag selectedContentTag = contentTagRepo.findOne(contentTagId);
 		model.addAttribute("selectedContentTag", selectedContentTag);
-    return "single-content-tag-view";
+		return "single-content-tag-view";
 	}
 
 	@RequestMapping("/add-comment")
@@ -60,9 +60,31 @@ public class ReviewController {
 	@RequestMapping("/add-content-tag")
 	public String addContentTag(String name, Long reviewId) {
 		Review appendedReview = reviewRepo.findOne(reviewId);
-		ContentTag newContentTag = new ContentTag(name, appendedReview);
-		contentTagRepo.save(newContentTag);
-		return "redirect:/review?id=" + reviewId;
+
+		Iterable<ContentTag> contentTags = contentTagRepo.findAll();
+		Long existingTagId = 0L;
+		for (ContentTag tag : contentTags) {
+			if (tag.getName().equalsIgnoreCase(name)) {
+				existingTagId = tag.getId();
+				break;
+			}
+		}
+		if (existingTagId != 0L) {
+			ContentTag existingTag = contentTagRepo.findOne(existingTagId);
+			if (appendedReview.getContentTags().contains(existingTag)) {
+				return "redirect:/review?id=" + reviewId;
+			} else {
+				appendedReview.getContentTags().add(existingTag);
+				existingTag.getReviews().add(appendedReview);
+				reviewRepo.save(appendedReview);
+				contentTagRepo.save(existingTag);
+				return "redirect:/review?id=" + reviewId;
+			}
+		} else {
+			ContentTag newContentTag = new ContentTag(name, appendedReview);
+			contentTagRepo.save(newContentTag);
+			return "redirect:/review?id=" + reviewId;
+		}
 	}
 
 	@RequestMapping("/remove-content-tag")
