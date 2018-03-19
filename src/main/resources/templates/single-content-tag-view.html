@@ -22,7 +22,7 @@
 			</nav>
 		</header>
 		<article class="main-content">
-			<h2 class="category-title" th:text="${selectedContentTag.name}">Nacho Review Category</h2>
+			<h2 class="category-title" >Reviews that contain the <span th:text="${selectedContentTag.name}"></span> tag</h2>
 			<div class="reviews-list" th:each="review: ${selectedContentTag.reviews}">
 				<section class="reviews">
 					<h3 class="reviews-list">
