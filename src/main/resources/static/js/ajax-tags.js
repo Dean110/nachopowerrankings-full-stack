@@ -9,6 +9,19 @@ xhr.onreadystatechange = function() {
 
 		tagList.innerHTML = res;
 
+document.querySelectorAll('.content-tag-remove-button').forEach(function(button){
+	button.addEventListener("click", function(event){
+		event.preventDefault();
+		const tagToBeRemovedId = button.parentElement.querySelector('.content-tag-remove-tag-id').value;
+		// console.log(tagToBeRemovedId);
+		const reviewId = button.parentElement.querySelector('.content-tag-remove-review-id').value;
+		// console.log(reviewId);
+		xhr.open('POST', 'http://localhost:8080/remove-content-tag/?contentTagId=' + tagToBeRemovedId + '&reviewId=' + reviewId, true);	
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send();
+	});
+});
+
 	}
 }
 
@@ -40,8 +53,8 @@ document.querySelectorAll('.content-tag-remove-button').forEach(function(button)
 		// console.log(tagToBeRemovedId);
 		const reviewId = button.parentElement.querySelector('.content-tag-remove-review-id').value;
 		// console.log(reviewId);
-		xhr.open('POST', 'http://localhost:8080/remove-content-tag', true);	
+		xhr.open('POST', 'http://localhost:8080/remove-content-tag/?contentTagId=' + tagToBeRemovedId + '&reviewId=' + reviewId, true);	
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhr.send("contentTagId=" + tagToBeRemovedId + "&reviewId="+ reviewId);
+		xhr.send();
 	});
 });

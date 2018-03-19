@@ -60,7 +60,6 @@ public class ReviewController {
 	@RequestMapping("/add-content-tag")
 	public String addContentTag(String name, Long reviewId) {
 		Review appendedReview = reviewRepo.findOne(reviewId);
-
 		Iterable<ContentTag> contentTags = contentTagRepo.findAll();
 		Long existingTagId = 0L;
 		for (ContentTag tag : contentTags) {
